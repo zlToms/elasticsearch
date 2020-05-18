@@ -179,7 +179,6 @@ public class ImportDataTest {
         String sqlRow = "SELECT count(*) FROM t_user ";
         int rows= dataUtils.getRows(sqlRow);
 
-
         List<String> keyList= new ArrayList<>();
         keyList.add("id"+":"+"1");
         keyList.add("userName"+":"+"2");
@@ -190,7 +189,7 @@ public class ImportDataTest {
         keyList.add("note"+":"+"2");
 
         BulkProcessor bulkProcessor = getBulkProcessor(client);
-        if(rows<10000){
+        if(rows<=100000){
             String sql = "SELECT * FROM t_user ";
             List<Map<String, String>> maps = dataUtils.queryData(sql,keyList);
             for(Map<String, String> map:maps){
