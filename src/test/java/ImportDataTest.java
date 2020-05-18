@@ -110,6 +110,8 @@ public class ImportDataTest {
         client.close();
     }
 
+
+
     @Test
     public void insetTuser(){
         DataUtils dataUtils= new DataUtils();
@@ -150,7 +152,6 @@ public class ImportDataTest {
             builder.setConcurrentRequests(10);
             builder.setFlushInterval(TimeValue.timeValueSeconds(100L));
             builder.setBackoffPolicy(BackoffPolicy.constantBackoff(TimeValue.timeValueSeconds(1L), 3));
-            // 注意点：在这里感觉有点坑，官网样例并没有这一步，而笔者因一时粗心也没注意，在调试时注意看才发现，上面对builder设置的属性没有生效
             bulkProcessor = builder.build();
 
         } catch (Exception e) {
